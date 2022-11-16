@@ -5,12 +5,16 @@ using UnityEngine;
 public class AsteroidMovement : MonoBehaviour
 {
     private Vector3 spin;
-    private float speed = 5f;
+    private float speed = 1f;
     private Vector3 verticalMovement;
+    private Vector3 targetPos;
+
+
 
     void Start()
     {
         spin = new Vector3(0, Random.Range(1, 5), Random.Range(1, 5));
+        targetPos = new Vector3(transform.position.x, 0, -8);
     }
 
     void Update()
@@ -22,9 +26,10 @@ public class AsteroidMovement : MonoBehaviour
 
 
     void Move()
-    {
-        verticalMovement = transform.forward * speed * Time.deltaTime * -1;
-        GetComponent<Rigidbody>().MovePosition(transform.position + verticalMovement);
+    { 
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        transform.Rotate(0, 0, speed * Time.deltaTime);
     }
 
 

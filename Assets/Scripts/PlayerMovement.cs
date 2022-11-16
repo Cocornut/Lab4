@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 horizontalMovement;
     private Vector3 lastPosition;
 
-    private float xMin = -5f, xMax = 5f, yMin = -3f, yMax = 5f;
+    private float xMin = -5f, xMax = 5f, yMin = -8f, yMax = 0f;
     private float zRotation;
     private float xVelocity;
 
